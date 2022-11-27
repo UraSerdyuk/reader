@@ -11,7 +11,16 @@ function App() {
     axios.get('http://localhost:9988/qwe')
       .then(function (response) {
         // handle success
-        setBook(response.data.replace('.',' ').split(' '));
+        setBook(response.data
+          .replaceAll('.','')
+          .replaceAll(',','')
+          .replaceAll('-','')
+          .replaceAll('/','')
+          .replaceAll('(','')
+          .replaceAll(')','')
+          .replaceAll(':','')
+          .replaceAll('№','')
+          .split(' '));
       })
       .catch(function (error) {
         // handle error

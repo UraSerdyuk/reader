@@ -19,7 +19,7 @@ app.use("/", express.static(path.join(__dirname, "client", "build")));
 
 app.get('/qwe', function (req, res) {
     try {
-        var data = fs.readFileSync('./books/Ighri.txt', 'utf8');
+        const data = fs.readFileSync('./books/Ighri.txt', 'utf8');
         res.send(data.toString());
     } catch(e) {
         console.log('Error:', e.stack);
@@ -29,8 +29,6 @@ app.get('/qwe', function (req, res) {
 app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
-
-
 
 try {
     var data = fs.readFileSync('./books/Ighri.txt', 'utf8');
@@ -43,7 +41,7 @@ async function start() {
     try {
         //start server
         app.listen(PORT, () => {
-            console.log(`Server is started on port №${PORT}`);
+            console.log(`Server is started on port http://localhost:${PORT}`);
         });
     } catch (e) {
         console.log("Server Error", e.message);
